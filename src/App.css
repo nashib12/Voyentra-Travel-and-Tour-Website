@@ -1,0 +1,102 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lora:ital,wght@0,400..700;1,400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import "tailwindcss";
+
+:root {
+  --heading-font-family: "Lora", serif;
+  --body-font-family: "Inter", sans-serif;
+  --font-family-Nepali: "Poppins", sans-serif;
+
+  --h1-font-size: clamp(32px, 6vw, 96px);
+  --h2-font-size: clamp(24px, 6vw, 72px);
+  --h3-font-size: clamp(16px, 6vw, 56px);
+  --h4-font-size: clamp(12px, 6vw, 40px);
+  --h5-font-size: clamp(8px, 6vw, 24px);
+  --h6-font-size: clamp(4px, 6vw, 16px);
+
+  --body-font-size: clamp(16px, 6vw, 24px);
+  --label-font-size: clamp(12px, 6vw, 16px);
+
+  --primary-500: #316164;
+  --primary-300: #6c979a;
+  --primary-100: #bedee0;
+
+  --secondary-500: #a27b5c;
+  --secondary-300: #c9ac95;
+  --secondary-100: #e1d2c5;
+
+  --tertiary-500: #cabfa0;
+  --tertiary-300: #dcd7c9;
+  --tertiary-100: #f1eee4;
+
+  --neutral-900: #2c3639;
+  --neutral-700: #6c7a7e;
+  --neutral-500: #a6b3b6;
+  --neutral-300: #cad7d9;
+  --neutral-100: #e7eeef;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--heading-font-family);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: 0.04em;
+}
+
+p,
+a,
+ul,
+li,
+ol {
+  font-family: var(--body-font-family);
+  line-height: 1.5;
+  letter-spacing: 0.03em;
+  font-size: var(--body-font-size);
+}
+
+h1 {
+  font-size: var(--h1-font-size);
+}
+h2 {
+  font-size: var(--h2-font-size);
+}
+h3 {
+  font-size: var(--h3-font-size);
+}
+h4 {
+  font-size: var(--h4-font-size);
+}
+h5 {
+  font-size: var(--h5-font-size);
+}
+h6 {
+  font-size: var(--h6-font-size);
+}
+
+label,
+button,
+span,
+table,
+thead,
+tbody,
+tr,
+th,
+td,
+select,
+option,
+input,
+textarea {
+  font-family: var(--body-font-family);
+  line-height: 1.25;
+  letter-spacing: 0.04em;
+  font-size: var(--label-font-size);
+  font-weight: 600;
+}
