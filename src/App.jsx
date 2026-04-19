@@ -8,6 +8,7 @@ import MainLayout from "./Pages/Layout/MainLayout";
 import Home from "./Pages/Home";
 import AuthLayout from "./Pages/Layout/AuthLayout";
 import Login from "./Components/Authentication/Login";
+import About from "./Pages/About";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Routes>
               <Route path="/" element={<MainLayout />}>
                 <Route path="" element={<Home />} />
+                <Route path="about-us" element={<About />} />
               </Route>
               <Route path="/authentication" element={<AuthLayout />}>
                 <Route path="log-in" element={<Login />} />

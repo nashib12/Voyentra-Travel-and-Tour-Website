@@ -1,6 +1,6 @@
 import React from 'react'
 import ErroImageIcon from '../../public/Images/404.svg'
-import ArrowLeftIcon from '../../public/Icons/left.png'
+import ArrowLeftIcon from '../../public/Icons/Button Icons/left.png'
 import { Link } from 'react-router-dom';
 
 function ErrorPage() {

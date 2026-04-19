@@ -9,12 +9,12 @@
   --h1-font-size: clamp(32px, 6vw, 96px);
   --h2-font-size: clamp(24px, 6vw, 72px);
   --h3-font-size: clamp(16px, 6vw, 56px);
-  --h4-font-size: clamp(12px, 6vw, 40px);
+  --h4-font-size: clamp(12px, 6vw, 32px);
   --h5-font-size: clamp(8px, 6vw, 24px);
   --h6-font-size: clamp(4px, 6vw, 16px);
 
-  --body-font-size: clamp(16px, 6vw, 24px);
-  --label-font-size: clamp(12px, 6vw, 16px);
+  --body-font-size: clamp(12px, 6vw, 18px);
+  --label-font-size: clamp(8px, 6vw, 14px);
 
   --primary-500: #316164;
   --primary-300: #6c979a;
@@ -36,7 +36,7 @@
 }
 
 body {
-  overflow-x: hidden;
+  overflow-x: hidden !important;
 }
 
 h1,

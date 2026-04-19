@@ -1,12 +1,12 @@
-import React from 'react'
+import React from "react";
+import Hero from "../Components/HomePage/Hero";
 
 function Home() {
   return (
     <div>
-      <h1>Hello world</h1>
-      
+      <Hero />
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;
