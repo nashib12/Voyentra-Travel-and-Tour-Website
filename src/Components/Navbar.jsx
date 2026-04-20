@@ -94,7 +94,7 @@ function Navbar() {
 
   return (
     <>
-    <nav className={`fixed top-0 left-0 right-0 duration-500 px-6 lg:px-16 transition-all ease-in-out ${isAtTop ? "bg-transparent text-[var(--neutral-900)]" : "bg-[var(--neutral-900)] text-[var(--neutral-100)]"} ${showNavbar ? `${isAtTop ? "translate-y-0" : "md:-translate-y-16"}` : "-translate-y-100"} `}>
+    <nav className={`fixed top-0 left-0 right-0 z-50 duration-500 px-6 sm:px-12 lg:px-24 transition-all ease-in-out ${isAtTop ? "bg-transparent" : "bg-[var(--neutral-900)] "} text-[var(--neutral-100)] ${showNavbar ? `${isAtTop ? "translate-y-0" : "md:-translate-y-20 lg:-translate-y-16"}` : "-translate-y-100"} `}>
       <div className={`hidden lg:flex justify-between py-2 md:py-4 border-b ${isAtTop ? "border-[var(--neutral-900)]" : "border-[var(--neutral-100)]"}`}>
           <div className='flex gap-6 items-center'>
             {socialMediaButton.map(item => (  
