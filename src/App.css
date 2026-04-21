@@ -7,14 +7,14 @@
   --font-family-Nepali: "Poppins", sans-serif;
 
   --h1-font-size: clamp(32px, 6vw, 80px);
-  --h2-font-size: clamp(24px, 6vw, 64px);
-  --h3-font-size: clamp(16px, 6vw, 48px);
-  --h4-font-size: clamp(12px, 6vw, 32px);
-  --h5-font-size: clamp(8px, 6vw, 24px);
-  --h6-font-size: clamp(4px, 6vw, 16px);
+  --h2-font-size: clamp(28px, 6vw, 64px);
+  --h3-font-size: clamp(24px, 6vw, 48px);
+  --h4-font-size: clamp(20px, 6vw, 32px);
+  --h5-font-size: clamp(16px, 2.5vw, 24px);
+  --h6-font-size: clamp(12px, 2.5vw, 20px);
 
-  --body-font-size: clamp(12px, 6vw, 18px);
-  --label-font-size: clamp(8px, 6vw, 14px);
+  --body-font-size: clamp(12px, 2.5vw, 16px);
+  --label-font-size: clamp(8px, 2.5vw, 14px);
 
   --primary-500: #316164;
   --primary-300: #6c979a;
@@ -47,8 +47,6 @@ h5,
 h6 {
   font-family: var(--heading-font-family);
   font-weight: 600;
-  line-height: 1.25;
-  letter-spacing: 0.03em;
 }
 
 p,
@@ -57,28 +55,39 @@ ul,
 li,
 ol {
   font-family: var(--body-font-family);
-  line-height: 1.5;
-  letter-spacing: 0.03em;
+  line-height: 1.75;
   font-size: var(--body-font-size);
 }
 
 h1 {
   font-size: var(--h1-font-size);
+  letter-spacing: -0.03em;
+  line-height: 1;
 }
 h2 {
   font-size: var(--h2-font-size);
+  letter-spacing: -0.02em;
+  line-height: 1;
 }
 h3 {
   font-size: var(--h3-font-size);
+  letter-spacing: -0.01em;
+  line-height: 1.25;
 }
 h4 {
   font-size: var(--h4-font-size);
+  letter-spacing: 0.02em;
+  line-height: 1.25;
 }
 h5 {
   font-size: var(--h5-font-size);
+  letter-spacing: 0.03em;
+  line-height: 1.5;
 }
 h6 {
   font-size: var(--h6-font-size);
+  letter-spacing: 0.03em;
+  line-height: 1.5;
 }
 
 label,

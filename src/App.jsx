@@ -18,8 +18,8 @@ function App() {
           <BrowserRouter>
             <Routes>
               <Route path="/" element={<MainLayout />}>
-                <Route path="" element={<Home />} />
-                <Route path="about-us" element={<About />} />
+                <Route path="about-us" element={<Home />} />
+                <Route path="" element={<About />} />
               </Route>
               <Route path="/authentication" element={<AuthLayout />}>
                 <Route path="log-in" element={<Login />} />

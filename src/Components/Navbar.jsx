@@ -65,6 +65,7 @@ function Navbar() {
   const [ showNavbar, setShowNavbar ] = useState(true);
   const [ isOpen, setIsOpen ] = useState(false);
   const { lenis } = useContext(DataContext);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
@@ -79,7 +80,7 @@ function Navbar() {
   }, []);
 
   useEffect(() => {
-    if(isOpen) {
+    if(isOpen || mobileOpen) {
       lenis?.stop();
       document.body.style.overflow = "hidden";
     } else {
@@ -90,11 +91,11 @@ function Navbar() {
       lenis?.start();
       document.body.style.overflow = "";
     }
-  }, [ lenis, isOpen]);
+  }, [ lenis, isOpen, mobileOpen]);
 
   return (
     <>
-    <nav className={`fixed top-0 left-0 right-0 z-50 duration-500 px-6 sm:px-12 lg:px-24 transition-all ease-in-out ${isAtTop ? "bg-transparent" : "bg-[var(--neutral-900)] "} text-[var(--neutral-100)] ${showNavbar ? `${isAtTop ? "translate-y-0" : "md:-translate-y-20 lg:-translate-y-16"}` : "-translate-y-100"} `}>
+    <nav className={`fixed top-0 left-0 right-0 z-99 duration-500 px-6 sm:px-12 lg:px-24 transition-all ease-in-out ${isAtTop ? "bg-transparent" : "bg-[var(--neutral-900)] "} text-[var(--neutral-100)] ${showNavbar ? `${isAtTop ? "translate-y-0" : "md:-translate-y-20 lg:-translate-y-16"}` : "-translate-y-100"} `}>
       <div className={`hidden lg:flex justify-between py-2 md:py-4 border-b ${isAtTop ? "border-[var(--neutral-900)]" : "border-[var(--neutral-100)]"}`}>
           <div className='flex gap-6 items-center'>
             {socialMediaButton.map(item => (  
@@ -134,15 +135,14 @@ function Navbar() {
           </div>
       </div>
     </nav>
-    <MenuBar isOpen={isOpen} setIsOpen={setIsOpen} />
+    <MenuBar isOpen={isOpen} setIsOpen={setIsOpen} mobileOpen={mobileOpen} setMobileOpen={setMobileOpen} />
     </>
   )
 }
 
 export default Navbar
 
-function MenuBar ({isOpen, setIsOpen }) {
-  const [mobileOpen, setMobileOpen] = useState(false);
+function MenuBar ({isOpen, setIsOpen, mobileOpen, setMobileOpen }) {
   const [ mobileOption, setMobileOption ] = useState("");
   const [ dropdown, setDropdown] = useState("");
 
@@ -160,7 +160,7 @@ function MenuBar ({isOpen, setIsOpen }) {
 
   return (
     <>
-    <div className={`fixed left-0 right-0 h-screen bg-[var(--neutral-900)] text-[var(--neutral-100)] transition-transform duration-500 ease-in-out ${isOpen ? "translate-y-0" : "-translate-y-[100vh]"} overflow-hidden`}>
+    <div className={`fixed left-0 right-0 z-199 h-screen bg-[var(--neutral-900)] text-[var(--neutral-100)] transition-transform duration-500 ease-in-out ${isOpen ? "translate-y-0" : "-translate-y-[100vh]"} overflow-hidden`}>
       {/* Desktop version menu layout */}
       <div className='hidden lg:block py-6 px-12 max-w-7xl mx-auto'>
         <div className='flex items-center justify-between gap-12'>
@@ -217,14 +217,14 @@ function MenuBar ({isOpen, setIsOpen }) {
         </div>
       </div>
       {/* mobile version menu layout */}
-      <div className='sm:hidden px-6 py-6 h-full'>
+      <div className='sm:hidden px-6 py-6 h-screen'>
         <div className='grid grid-rows-[auto_1fr_auto_auto] h-full'> 
-         <div className='flex items-center justify-between gap-12 mb-6'>
+         <div className='flex items-center justify-between gap-12 mb-3'>
           <img src={LogoImg} alt="brand logo" className='h-16 w-16 md:h-24 md:w-24 object-contain' />
           <button onClick={() => setIsOpen(false)} className='h-10 w-10 md:h-12 md:w-12 rounded-full cursor-pointer flex items-center justify-center bg-[var(--primary-500)] transition-transform duration-300 ease-out hover:scale-105 active:scale-95'><img src={CloseButtonIcon} alt="close button icon" className='h-6 w-6 md:h-8 md:w-8 object-contain invert' /></button>
         </div>
         <ul>
-          <li className='py-2.5 cursor-pointer'>Home</li>
+          <Link to={'/'}><li className='py-2.5 cursor-pointer'>Home</li></Link>
           <li className='flex items-center justify-between py-2.5 cursor-pointer' onClick={() => {
             setMobileOpen(true);
             setMobileOption("destinations");
@@ -239,7 +239,7 @@ function MenuBar ({isOpen, setIsOpen }) {
           }}>About Us <img src={ArrowRightButtonIcon} alt="right arrow button icon" className='h-3 w-3 md:h-5 md:w-5 object-contain invert' /></li>
         </ul>
         <button className='h-12 w-full bg-[var(--primary-500)] text-[var(--neutral-100)] rounded-md mb-6'>Plan Your Trip</button>
-        <div className='border-t border-[var(--neutral-100)] py-2 flex justify-between'>
+        <div className='border-t border-[var(--neutral-100)] py-2 flex justify-between mb-14'>
             <a href="#"><span className='cursor-pointer'>Travel Insurance</span></a>
             <a href="#"><span className='cursor-pointer'>Booking Policy</span></a>
         </div>
@@ -287,7 +287,7 @@ function MenuBar ({isOpen, setIsOpen }) {
 function DestinationDetails ({ image, menuOption, title}) {
   if (!menuOption || menuOption.length === 0 || !image) return null;
   return (
-    <div className='grid grid-cols-[1fr_auto] gap-8'>
+    <div className='grid grid-cols-[1fr_auto] gap-8 z-899'>
         <img src={image} alt={title} className='w-full rounded-xl h-100 object-cover shadow-sm' />
         <div className='flex flex-col gap-6 w-42'>
           <h4>{title}</h4>
@@ -308,7 +308,7 @@ function MobileMenu ({ title, mobileOpen, setMobileOpen, options, mobileOption }
   const [mobileLayout, setMobileLayout] = useState(false);
     return (
       <>
-      <div className={`fixed px-8 py-8 top-0 bottom-0 grid grid-rows-[auto_1fr_auto] w-full sm:w-0 bg-[var(--neutral-900)] text-[var(--neutral-100)] transition-transform duration-500 ease-in-out ${mobileOpen ? "translate-x-0" : "-translate-x-200"}`}>
+      <div className={`fixed px-8 py-8 top-0 bottom-0 z-699 grid grid-rows-[auto_1fr_auto] w-full sm:w-0 bg-[var(--neutral-900)] text-[var(--neutral-100)] transition-transform duration-500 ease-in-out ${mobileOpen ? "translate-x-0" : "-translate-x-200"}`}>
           <h4 className='mb-6'>{title}</h4>
           {mobileOption === "destinations" ? (<ul>{options.map(item => (
             <li onClick={() => {
@@ -329,7 +329,7 @@ function MobileMenu ({ title, mobileOpen, setMobileOpen, options, mobileOption }
 
 function MobileDestinationDetails ({image, menuOption, title, mobileLayout, setMobileLayout}) {
   return (
-    <div className={`fixed top-0 bottom-0 w-full  sm:w-0 text-[var(--neutral-100)] transition-transform duration-500 ease-in-out ${mobileLayout ? "translate-x-0" : "-translate-x-200"}`}>
+    <div className={`fixed z-999 top-0 bottom-0 w-full  sm:w-0 text-[var(--neutral-100)] transition-transform duration-500 ease-in-out ${mobileLayout ? "translate-x-0" : "-translate-x-200"}`}>
       <div className='relative'>
         <button className='h-8 w-8 rounded-full flex items-center justify-center bg-[var(--primary-500)] absolute top-6 right-6 z-10' onClick={() => setMobileLayout(false)}><img src={CloseButtonIcon} alt="close button icon" className='h-4 w-4 object-contain invert' /></button>
         <img src={image} alt={title} className='h-screen w-full object-cover' />
