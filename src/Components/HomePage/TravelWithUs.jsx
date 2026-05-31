@@ -5,6 +5,7 @@ import BalanceIcon from '../../../public/Icons/meditation.png'
 import ResponseIcon from '../../../public/Icons/response.png'
 import ConnectionIcon from '../../../public/Icons/arrow.png'
 import VerifyIcon from '../../../public/Icons/Button Icons/verify.png'
+import { Link } from 'react-router-dom'
 
 function TravelWithUs() {
     const guideArray = [
@@ -38,7 +39,9 @@ function TravelWithUs() {
                     </div>
                     ))}
                 </div>
-                <button className='h-8 md:h-12 w-fit px-4 bg-[var(--neutral-900)] text-[var(--primary-100)] cursor-pointer rounded-sm'>Learn More</button>
+                <Link to={'/about-us'}>
+                    <button className='h-8 md:h-12 w-fit px-4 bg-[var(--neutral-900)] text-[var(--primary-100)] cursor-pointer rounded-sm'>Learn More</button>
+                </Link>
             </div>
         </div>
     </section>
@@ -49,7 +52,9 @@ function TravelWithUs() {
                 <h3 className='text-[var(--neutral-900)] mt-1 md:mt-3 mb-3'>Bespoke to Your Design</h3>
                 <p className='text-[var(--neutral-700)] mb-3 text-justify md:text-start'>We are a team of seasoned professionals with over 18 years of expertise in Asian tourism. With an extensive network across Bhutan, Nepal, Tibet, India, Cambodia, Vietnam, Laos, Myanmar, and Thailand, we specialize in creating seamless, culturally sensitive, and personalized travel experiences. </p>
                 <p className='text-[var(--neutral-700)] mb-3 md:mb-6 text-justify md:text-start'>From crafting tailor-made trips to managing every detail with care, we are dedicated to delivering unparalleled satisfaction. We are dedicated to making your trip genuinely remarkable, whether we are handling intricate logistics or creating original itineraries.</p>
-                <button className='h-8 md:h-12 w-fit px-4 rounded-sm cursor-pointer bg-[var(--primary-500)] text-[var(--neutral-100)]'>Contact Us</button>
+                <Link to={'/contact-us'}>
+                    <button className='h-8 md:h-12 w-fit px-4 rounded-sm cursor-pointer bg-[var(--primary-500)] text-[var(--neutral-100)]'>Contact Us</button>
+                </Link>
             </div>
             <div className='flex items-center justify-center'>
                 <div className='border-2 border-[var(--neutral-900)] rounded-xl h-60 w-50 md:h-120 md:w-100'>

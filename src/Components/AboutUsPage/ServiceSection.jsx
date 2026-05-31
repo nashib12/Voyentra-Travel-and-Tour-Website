@@ -33,7 +33,9 @@ function ServiceSection() {
                 </div>
                 <button className='h-8 md:h-12 w-fit px-4 cursor-pointer bg-[var(--primary-500)] text-[var(--neutral-100)] rounded-sm'>View Packages</button>
             </div>
-            <img src={Images} alt="adventure img" className='hidden md:block h-80 w-60 lg:h-120 lg:w-100 object-cover rounded-xl' />
+            <div className='flex items-center'>
+            <img src={Images} alt="adventure img" className='hidden md:block h-80 w-60 lg:h-120 lg:w-100 object-cover rounded-xl mx-auto' />
+            </div>
         </div>
     </section>
   )

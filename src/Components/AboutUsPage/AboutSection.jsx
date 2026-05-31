@@ -10,7 +10,7 @@ function AboutSection() {
   return (
     <>
     <section id="about-section" className="px-6 sm:px-12 lg:px-24 py-12 md:py-24">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-0 gap-y-6 md:gap-12 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-0 gap-y-6 md:gap-24 items-center">
             <div>
                 <span className="text-[var(--secondary-500)]">Our Story</span>
                 <h3 className="mt-1 md:mt-3 mb-3 text-[var(--neutral-900)]">Discover the World with confidence</h3>
@@ -22,13 +22,13 @@ function AboutSection() {
                     
                 </div>
             </div>
-            <img src={Image} alt="image" className="hidden md:block h-80 w-60 lg:h-120 lg:w-100 object-cover rounded-xl shadow-md" />
+            <img src={Image} alt="image" className="hidden md:block h-80 w-60 lg:h-120 lg:w-100 object-cover rounded-xl shadow-md mx-auto" />
         </div>
     </section>
     <section id="message" className="px-6 sm:px-12 lg:px-24">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-0 gap-y-6 md:gap-12">
-            <div className="flex items-center">
-                <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12 bg-[var(--primary-100)] w-full h-fit px-8 py-6 rounded-xl">
+        <div className="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-x-0 gap-y-6 md:gap-24">
+            <div className="flex items-center w-full justify-center">
+                <div className="flex flex-col items-center justify-center gap-6 md:gap-12 bg-[var(--primary-100)] w-fit h-fit px-8 py-6 rounded-xl">
                     <img src={MDImage} alt="managing director image" className="h-60 w-60 md:h-80 md:w-80 object-cover rounded-xl" />
                     <div className="text-center">
                         <h4 className="text-[var(--neutral-900)] mb-1">Jhon Doe</h4>

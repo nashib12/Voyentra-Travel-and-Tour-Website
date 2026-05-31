@@ -2,9 +2,11 @@ import React from 'react'
 import Img from '../../../public/Images/Travel/everest-base-camp.jpg'
 
 function PopularPackages() {
+
+   
   return (
     <section id="popular-packages" className='px-6 sm:px-12 lg:px-24 py-12 md:py-24'>
-        <span className='text-[var(--secondary-500)]'>Featured Paclages</span>
+        <span className='text-[var(--secondary-500)]'>Featured PacKages</span>
         <h3 className='text-[var(--neutral-900)] mt-1 mb-3 md:mt-3'>Our Most Popular Packages</h3>
         <p className='text-[var(--neutral-500)] mb-6 md:mb-12 text-justify md:text-start'>Embark on a memorial journey with one of our must popular adventure package.</p>
         <div className='grid grid-cols-1 gap-y-6 gap-x-0 md:grid-cols-6 md:gap-6'>

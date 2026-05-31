@@ -1,12 +1,15 @@
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import LogoImg from '../../public/Images/logo.svg'
 import NEImg from '../../public/Images/Emblem_of_Nepal.svg'
 import NTBImg from '../../public/Images/ntb.jpg'
 import GalleryImg from '../../public/Images/Travel/everest-base-camp.jpg'
 import { Fancybox } from "@fancyapps/ui/dist/fancybox/";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
+import { Link } from "react-router-dom"
+import DataContext from '../Context/DataContext'
 
 function Footer() {
+  const { gallery, destinations, setDetailTypes } = useContext(DataContext);
   useEffect(() => {
     Fancybox.bind("[data-fancybox='gallery']", {
       Thumbs: {
@@ -17,7 +20,7 @@ function Footer() {
       Fancybox.destroy();
     };
   }, []);
-  
+  // console.log(gallery);
   return (
     <footer className='px-6 sm:px-12 lg:px-24 bg-[var(--neutral-900)] pt-12 pb-6 md:pt-24'>
       <div className='grid grid-cols-3 md:grid-cols-5 gap-6 mb-6 md:mb-12'>
@@ -25,21 +28,20 @@ function Footer() {
         <div>
           <h5 className='text-[var(--neutral-100)] mb-3 md:mb-6'>Useful Links</h5>
           <ul className='text-[var(--neutral-500)] flex flex-col gap-1 md:gap-2 ml-1'>
-            <li>Home</li>
-            <li>Our Story</li>
-            <li>Testimonials</li>
-            <li>Blogs</li>
-            <li>Contact Us</li>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/about-us">Our Story</Link></li>
+            <li><Link to="/blog-page">Blogs</Link></li>
+            <li><Link to="/packages" onClick={() => setDetailTypes('package')}>Packages</Link></li>
+            <li><Link to="/packages" onClick={() => setDetailTypes('activity')}>Activities</Link></li>
+            <li><Link to="/contact-us">Contact Us</Link></li>
           </ul>
         </div>
         <div>
           <h5 className='text-[var(--neutral-100)] mb-3 md:mb-6'>Destinations</h5>
           <ul className='text-[var(--neutral-500)] flex flex-col gap-1 md:gap-2 ml-1'>
-            <li>Nepal</li>
-            <li>Bhutan</li>
-            <li>Tibet</li>
-            <li>India</li>
-            <li>China</li>
+            {destinations.map(item => (
+              <li key={item.id}>{item.destination}</li>
+            ))}
           </ul>
         </div>
         <div>
@@ -79,9 +81,9 @@ function Footer() {
         <div className='col-span-2 md:col-span-1 mt-6 md:mt-0'>
           <h5 className='text-[var(--neutral-100)] mb-3 md:mb-6'>Our Gallery</h5>
           <div className='grid grid-cols-3 gap-3'>
-            {[1,2,3,4,5,6].map(item => (
-              <a key={item} href={GalleryImg} data-fancybox='gallery'>
-                <img src={GalleryImg} alt='gallery image' className='h-24 w-full object-cover rounded-sm' />
+            {gallery.map(item => (
+              <a key={item.id} href={item.image_url} data-fancybox='gallery'>
+                <img src={item.image_url} alt={item.title} className='h-24 w-full object-cover rounded-sm' />
               </a>
             ))}
           </div>

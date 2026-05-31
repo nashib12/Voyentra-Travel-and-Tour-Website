@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import GuestImg1 from '../../../public/Images/Guests/guest-01.jpg'
 import GuestImg2 from '../../../public/Images/Guests/guest-02.jpg'
 import GuestImg3 from '../../../public/Images/Guests/guest-03.jpg'
@@ -6,15 +6,18 @@ import GuestImg4 from '../../../public/Images/Guests/guest-04.jpg'
 import StarIcon from '../../../public/Icons/star-fil.png'
 import TravelImg1 from '../../../public/Images/Travel/everest.jpg'
 import TravelImg2 from '../../../public/Images/Travel/everest-base-camp.jpg'
+import { Link } from 'react-router-dom'
+import DataContext from '../../Context/DataContext'
 
 function AboutUs() {
+    const { setDetailType, setModal } = useContext(DataContext);
   return (
     <section id='about-us' className='px-6 sm:px-12 lg:px-24 py-12 md:py-24'>
         <div className='grid grid-cols-1 md:grid-cols-2 gap-y-6 gap-x-0 md:gap-12'> 
             <div className=''>
                 <span className='text-[var(--secondary-500)]'>Extreme Tour</span>
                 <h3 className='text-[var(--neutral-900)] mt-1 md:mt-3 mb-3'>Discover Your Perfect Travel Destinations</h3>
-                <p className='text-[var(--neutral-700)] mb-6 text-justify md:text-start'>We create unforgettable experiences for you and your family, with personalized itineraries and exclusive access to the world's most breathtaking locations.</p>
+                <p className='text-[var(--neutral-700)] mb-6 text-justify md:text-start'>We create unforgettable experiences for you , your family and friends, with personalized itineraries and exclusive access to the world's most breathtaking locations.</p>
                 <div className='flex flex-col md:flex-row md:items-center gap-4 md:gap-16 text-[var(--neutral-700)] mb-6'>
                     <div className='flex items-center'>
                         <img src={GuestImg1} alt="guest image" className='h-10 w-10 md:h-12 md:w-12 rounded-full object-cover border-2 border-[var(--neutral-100)]' />
@@ -31,8 +34,10 @@ function AboutUs() {
                     </div>
                 </div>
                 <div className='flex items-center gap-3 md:gap-6'>
-                    <button className='h-8 md:h-12 w-fit px-4 bg-[var(--primary-500)] text-[var(--neutral-100)] rounded-sm cursor-pointer'>Start Your Journey</button>
-                    <button className='h-8 md:h-12 w-fit px-4 bg-[var(--neutral-100)] text-[var(--primary-500)] border border-[var(--primary-500)] rounded-sm cursor-pointer'>View Destinations</button>
+                    <button onClick={() => setModal(true)} className='h-8 md:h-12 w-fit px-4 bg-[var(--primary-500)] text-[var(--neutral-100)] rounded-sm cursor-pointer'>Start Your Journey</button>
+                    <Link to={'/packages'} onClick={() => setDetailType('package')}>
+                        <button className='h-8 md:h-12 w-fit px-4 bg-[var(--neutral-100)] text-[var(--primary-500)] border border-[var(--primary-500)] rounded-sm cursor-pointer'>View Packages</button>
+                    </Link>
                 </div>
             </div>
             <div className='hidden sm:flex items-center gap-3 md:gap-6'>
